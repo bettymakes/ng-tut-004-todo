@@ -7,20 +7,24 @@
   </head>
   <body ng-controller="MainCtrl">
     <div class="container">
-      <form ng-submit="addTask(newTask)">
-        <input ng-model="newTask.text"/>
-        <button type="submit">Add Task</button>
-        <select>
-          <option value=""></option>
-        </select>
-      </form>
-
-      <ul>
-        <li ng-repeat="item in toDoList">
-          {{item}}
-        </li>
-      </ul>
-
+      <div class="row">
+        <div class="col-sm-6">
+          <form ng-submit="addTask(newTask)">
+            <input ng-model="newTask.text"/>
+            <button type="submit">Add Task</button>
+            <select ng-model="newTask.status" ng-options="taskStatus.name for taskStatus in status ">
+              <option value="">-- Choose Priority --</option>
+            </select>
+          </form>
+        </div>
+        <div class="col-sm-6">
+          <ul>
+            <li ng-repeat="item in toDoList">
+              {{item}}
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>  
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="../scripts/angular.min.js"></script>
