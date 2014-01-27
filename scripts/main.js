@@ -7,17 +7,20 @@ app.controller('MainCtrl', function($scope){
   //Creating an array to hold all the tasks
   $scope.toDoList = [];
   $scope.newTask = {
+    title: '',
+    description: '',
     status: {
       name: 'none',
       value: 0
-    }
+    },
+    complete: false
   }
 
 //Region Objects
   $scope.status = [
-  {name: 'high', value: 1},
-  {name: 'medium', value: 2},
-  {name: 'low', value: 3},
+    {name: 'high', value: 1},
+    {name: 'medium', value: 2},
+    {name: 'low', value: 3},
   ];
 
 
@@ -25,15 +28,17 @@ app.controller('MainCtrl', function($scope){
   //Creating new empty task with predefine default values
   $scope.emptyTask = function(){
     $scope.newTask = {
-      text : '',
-      status: {name: 'none', value: 0} 
-    }
+      title : '',
+      description: '',
+      status: {name: 'none', value: 0},
+      complete: false
+    };
   };
 
   //addTask Fn adds a new task to the masterList array
   $scope.addTask = function(obj){
 
-    if(obj === undefined || obj.text === ''){
+    if(obj === undefined || obj.title === '' || obj.description === ''){
       return false;
     }
 
