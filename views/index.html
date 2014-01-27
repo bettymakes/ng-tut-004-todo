@@ -8,11 +8,19 @@
   <body ng-controller="MainCtrl">
     <div class="container">
       <form ng-submit="addTask(newTask)">
-        <input ng-model="newTask"/>
+        <input ng-model="newTask.text"/>
         <button type="submit">Add Task</button>
+        <select>
+          <option value=""></option>
+        </select>
       </form>
-      
-      {{masterList}}
+
+      <ul>
+        <li ng-repeat="item in toDoList">
+          {{item}}
+        </li>
+      </ul>
+
     </div>  
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="../scripts/angular.min.js"></script>
