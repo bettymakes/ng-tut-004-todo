@@ -6,11 +6,14 @@
     <link rel="stylesheet" href="../styles/main.css"
   </head>
   <body ng-controller="MainCtrl">
-    <form>
-      <input ng-model="newTask"/>
-      {{ newTask }}
-    </form>
-    
+    <div class="container">
+      <form ng-submit="addTask(newTask)">
+        <input ng-model="newTask"/>
+        <button type="submit">Add Task</button>
+      </form>
+      
+      {{masterList}}
+    </div>  
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="../scripts/angular.min.js"></script>
     <script src="../scripts/bootstrap.min.js"></script>    
